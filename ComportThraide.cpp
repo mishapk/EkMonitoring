@@ -35,7 +35,7 @@ void __fastcall TComPort::Execute()
        while(1)
        {
          getDB_data();
-
+         
          //Synchronize(UpdateCaption);
        }
 }
@@ -46,18 +46,18 @@ void __fastcall TComPort::Connect(const AnsiString& port, int baudrate)
         getDB_data();
  	m_Handle =
  		CreateFile(
- 		port.c_str(), 
+ 		port.c_str(),
  		GENERIC_READ | GENERIC_WRITE,
  		0,
  		NULL,
- 		OPEN_EXISTING, 
+ 		OPEN_EXISTING,
  		FILE_ATTRIBUTE_NORMAL,
  		NULL);
-	
+
  	if(m_Handle == INVALID_HANDLE_VALUE) {
  		 TTYException();
  	}
-	
+
  	SetCommMask(m_Handle, EV_RXCHAR);
  	SetupComm(m_Handle, 1500, 1500);
 
@@ -73,9 +73,9 @@ void __fastcall TComPort::Connect(const AnsiString& port, int baudrate)
                 m_Handle = INVALID_HANDLE_VALUE;
  		 TTYException();
  	}
-	
+
  	DCB ComDCM;
-	
+
  	memset(&ComDCM,0,sizeof(ComDCM));
  	ComDCM.DCBlength = sizeof(DCB);
  	GetCommState(m_Handle, &ComDCM);
@@ -161,7 +161,7 @@ void __fastcall TComPort::TTYException()
 
        	unsigned char* buf = &data[0];
  	DWORD len=len_;
-	
+
  	int attempts = 3;
  	while(len && (attempts || (GetTickCount()-begin) < (DWORD)TIMEOUT/3)) {
 
@@ -176,7 +176,7 @@ void __fastcall TComPort::TTYException()
  		assert(feedback <= len);
  		len -= feedback;
  		buf += feedback;
-	
+
  	}
 
  	if(len) {
@@ -194,7 +194,7 @@ void __fastcall TComPort::TTYException()
 
 //------------------------------------------------------------------------------
 unsigned int CRC16_2(unsigned char *buf, int len)
-{  
+{
   unsigned int crc = 0xFFFF;
   for (int pos = 0; pos < len; pos++)
   {
@@ -229,7 +229,7 @@ void _fastcall TComPort::getDB_data()
   while(!ADO->Eof)
   {
 
-    if(!ADO->Fields->FieldByName("Enabled")->AsBoolean) {ADO->Next();continue;}
+    if(!ADO->Fields->FieldByName("tag.Enabled")->AsBoolean) {ADO->Next();continue;}
     //--------------------------------
      U.data.adr=ADO->Fields->FieldByName("Address")->AsInteger;
      U.data.fun=ADO->Fields->FieldByName("Memory_Type")->AsInteger;
@@ -254,6 +254,10 @@ void _fastcall TComPort::getDB_data()
        ADO->Fields->FieldByName("Date_value")->AsString=FloatToStrF(value,ffGeneral,4,3);
        ADO->Post();
        ADDtoCharts(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
+      // int idx=Form1->getIndexFR("ID"+ADO->Fields->FieldByName("TAG.ID")->AsString);
+      // ((TWS600*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("TAG.ID")->AsString))->SetValue(0,value);
+       //((TWS600*)Form1->UFR.FR[idx])->SetValue(1,value);
+
      }
      if(ADO->Fields->FieldByName("Date_type")->AsInteger==0)
      {
@@ -265,7 +269,12 @@ void _fastcall TComPort::getDB_data()
        ADO->Post();
        ADDtoCharts(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
      }
-
+    int WidgetType=ADO->Fields->FieldByName("WidgetType")->AsInteger;
+    switch (WidgetType)
+   {
+    case 0: ((TWS600*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("Device.ID")->AsString))->SetValue(ADO->Fields->FieldByName("Offset")->AsInteger,value);break;
+   }
+    ;
      Sleep(1000);
     //---------------------------------
 

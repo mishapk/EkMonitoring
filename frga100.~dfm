@@ -1,0 +1,114 @@
+object GA100: TGA100
+  Left = 0
+  Top = 0
+  Width = 479
+  Height = 240
+  TabOrder = 0
+  object vrLineMeter1: TvrLineMeter
+    Left = 56
+    Top = 0
+    Width = 90
+    Height = 230
+    Scale.Decimals = 2
+    Scale.FormatText = '%s'
+    Scale.Max = 2
+    Scale.Min = 0.5
+    Scale.Offset = 20
+    Scale.Step = 0.1
+    Scale.SmallStep = 10
+    Scale.HeightMax = 14
+    Scale.HeightMin = 8
+    Region1.Color = clYellow
+    Region1.FromValue = 50
+    Region1.ToValue = 83.3333333333333
+    Region2.Color = clGreen
+    Region2.FromValue = 83.3333333333333
+    Region2.ToValue = 116.666666666667
+    Region3.Color = clRed
+    Region3.FromValue = 116.666666666667
+    Region3.ToValue = 150
+    SetPoint.Value = 33.3333333333333
+    SetPoint.Bitmap.Data = {
+      9A000000424D9A00000000000000760000002800000006000000090000000100
+      0400000000002400000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003C33
+      33003CC333003CCC33003CCCC3003CCC33003CC333003C33330033333300}
+    SetPoint.Shape = voBitmap
+    SetPoint.Color = clBlue
+    SetPoint.Visible = False
+    PeakMin.Value = 70
+    PeakMin.Bitmap.Data = {
+      9A000000424D9A00000000000000760000002800000006000000090000000100
+      0400000000002400000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003C33
+      33003CC333003CCC33003CCCC3003CCC33003CC333003C33330033333300}
+    PeakMin.Shape = voTriangle
+    PeakMin.Color = clRed
+    PeakMin.Visible = True
+    PeakMax.Value = 140
+    PeakMax.Bitmap.Data = {
+      9A000000424D9A00000000000000760000002800000006000000090000000100
+      0400000000002400000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003C33
+      33003CC333003CCC33003CCCC3003CCC33003CC333003C33330033333300}
+    PeakMax.Shape = voTriangle
+    PeakMax.Color = clYellow
+    PeakMax.Visible = True
+    Value.Value = 100
+    Value.Bitmap.Data = {
+      9A000000424D9A00000000000000760000002800000006000000090000000100
+      0400000000002400000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003C33
+      33003CC333003CCC33003CCCC3003CCC33003CC333003C33330033333300}
+    Value.Shape = voLine
+    Value.Color = clAqua
+    Value.Visible = True
+    Caption = 'vrLineMeter1'
+    Color = clSilver
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+  end
+  object VrJogMeter1: TVrJogMeter
+    Left = 208
+    Top = 64
+    Width = 160
+    Height = 40
+    Scale.Color = clBlack
+    Scale.FormatText = '%s'
+    Scale.Apperture = 60
+    Scale.Position = voBefore
+    Scale.Step = 10
+    Scale.SmallStep = 2
+    Scale.HeightMax = 15
+    Scale.HeightMin = 8
+    Value.Bitmap.Data = {
+      9A000000424D9A00000000000000760000002800000006000000090000000100
+      0400000000002400000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF007CCCC7007CCC
+      C7007CCCC70077CC770077CC770077CC770077CC77007777770077777700}
+    Value.Shape = voLine
+    Value.Color = clRed
+    Value.Visible = True
+    FromColor = clBlack
+    ToColor = clWhite
+    Caption = 'VrJogMeter1'
+    Color = clBlack
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+  end
+end

@@ -1,228 +1,26 @@
-object WS600: TWS600
+object GA100: TGA100
   Left = 0
   Top = 0
-  Width = 824
-  Height = 305
+  Width = 305
+  Height = 303
   TabOrder = 0
-  object GroupBox1: TGroupBox
-    Left = 8
-    Top = 8
-    Width = 393
-    Height = 225
-    Caption = 'Wind'
-    Color = clBackground
-    ParentColor = False
-    TabOrder = 0
-    object WDMeter: TVrAngularMeter
-      Left = 8
-      Top = 16
-      Width = 180
-      Height = 180
-      MaxValue = 360
-      Decimals = 0
-      Angle = 180
-      AngleOffset = 360
-      Percent1 = 0
-      Percent2 = 100
-      Labels = 8
-      LabelsFont.Charset = DEFAULT_CHARSET
-      LabelsFont.Color = clWhite
-      LabelsFont.Height = -11
-      LabelsFont.Name = 'MS Sans Serif'
-      LabelsFont.Style = []
-      Transparent = True
-      Caption = '|Direction'
-      Color = clBackground
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-    end
-    object WSMeter: TVrAngularMeter
-      Left = 192
-      Top = 24
-      Width = 180
-      Height = 180
-      MaxValue = 75
-      Decimals = 0
-      LabelsFont.Charset = DEFAULT_CHARSET
-      LabelsFont.Color = clWhite
-      LabelsFont.Height = -11
-      LabelsFont.Name = 'MS Sans Serif'
-      LabelsFont.Style = []
-      Transparent = True
-      Caption = '|Speed'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-    end
-    object Label1: TLabel
-      Left = 123
-      Top = 195
-      Width = 39
-      Height = 13
-      Caption = 'Degress'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label2: TLabel
-      Left = 315
-      Top = 195
-      Width = 18
-      Height = 13
-      Caption = 'm/s'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object WDEdit: TVrStrEdit
-      Left = 69
-      Top = 192
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      Text = '0.0'
-    end
-    object WSEdit: TVrStrEdit
-      Left = 261
-      Top = 192
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      Text = '0.0'
-    end
-  end
   object GroupBox2: TGroupBox
-    Left = 400
-    Top = 8
-    Width = 401
+    Left = 0
+    Top = 0
+    Width = 297
     Height = 297
     Caption = 'PTU'
     Color = clBackground
     ParentColor = False
-    TabOrder = 1
-    object TMeter: TvrThermoMeter
+    TabOrder = 0
+    object Gaz1: TvrLineMeter
       Left = 8
-      Top = 16
-      Width = 97
-      Height = 230
-      ColorAfter = clBlue
-      Scale.Color = clBlack
-      Scale.FormatText = '%s'
-      Scale.Max = 100
-      Scale.Min = -50
-      Scale.Offset = 20
-      Scale.Step = 20
-      Scale.SmallStep = 4
-      Scale.HeightMax = 14
-      Scale.HeightMin = 8
-      SetPoint.Value = 6
-      SetPoint.Bitmap.Data = {
-        9A000000424D9A00000000000000760000002800000006000000090000000100
-        0400000000002400000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003333
-        3C00333CCC003CCCCC00CCCCCC003CCCCC00333CCC0033333C0033333300}
-      SetPoint.Shape = voTriangle
-      SetPoint.Color = clYellow
-      SetPoint.Visible = False
-      PeakMin.Value = 5
-      PeakMin.Bitmap.Data = {
-        9A000000424D9A00000000000000760000002800000006000000090000000100
-        0400000000002400000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003333
-        3C00333CCC003CCCCC00CCCCCC003CCCCC00333CCC0033333C0033333300}
-      PeakMin.Shape = voTriangle
-      PeakMin.Color = clYellow
-      PeakMin.Visible = False
-      PeakMax.Value = 140
-      PeakMax.Bitmap.Data = {
-        9A000000424D9A00000000000000760000002800000006000000090000000100
-        0400000000002400000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003333
-        3C00333CCC003CCCCC00CCCCCC003CCCCC00333CCC0033333C0033333300}
-      PeakMax.Shape = voTriangle
-      PeakMax.Color = clAqua
-      PeakMax.Visible = False
-      Value.Value = 10.5
-      Value.Bitmap.Data = {
-        9A000000424D9A00000000000000760000002800000006000000090000000100
-        0400000000002400000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333003333
-        3C00333CCC003CCCCC00CCCCCC003CCCCC00333CCC0033333C0033333300}
-      Value.Shape = voLine
-      Value.Color = clAqua
-      Value.Visible = False
-      Caption = 'TMeter'
-      Color = clSilver
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -13
-      Font.Name = 'Arial'
-      Font.Style = []
-      ParentColor = False
-      ParentFont = False
-    end
-    object Label3: TLabel
-      Left = 67
-      Top = 267
-      Width = 11
-      Height = 13
-      Caption = 'C'#176
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 11
-      Top = 251
-      Width = 60
-      Height = 13
-      Caption = 'Temperature'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object HMeter: TvrLineMeter
-      Left = 112
       Top = 16
       Width = 90
       Height = 230
       Scale.FormatText = '%s'
       Scale.Max = 100
+      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 20
       Scale.SmallStep = 10
@@ -230,6 +28,7 @@ object WS600: TWS600
       Scale.HeightMin = 8
       Region1.Color = clAqua
       Region1.FromValue = 100
+      Region1.ToValue = 83.3333333333333
       Region2.Color = clGreen
       Region2.FromValue = 100
       Region2.ToValue = 100
@@ -248,6 +47,7 @@ object WS600: TWS600
       SetPoint.Shape = voTriangle
       SetPoint.Color = clBlue
       SetPoint.Visible = False
+      PeakMin.Value = 70
       PeakMin.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -267,6 +67,7 @@ object WS600: TWS600
       PeakMax.Shape = voTriangle
       PeakMax.Color = clYellow
       PeakMax.Visible = False
+      Value.Value = 100
       Value.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -276,7 +77,7 @@ object WS600: TWS600
       Value.Shape = voTriangle
       Value.Color = clRed
       Value.Visible = True
-      Caption = 'HMeter'
+      Caption = 'Gaz1'
       Color = clSilver
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
@@ -287,12 +88,13 @@ object WS600: TWS600
       ParentFont = False
     end
     object PMeter: TvrLineMeter
-      Left = 208
+      Left = 104
       Top = 16
       Width = 90
       Height = 230
       Scale.FormatText = '%s'
       Scale.Max = 1500
+      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 250
       Scale.SmallStep = 100
@@ -300,6 +102,7 @@ object WS600: TWS600
       Scale.HeightMin = 8
       Region1.Color = clOlive
       Region1.FromValue = 1500
+      Region1.ToValue = 83.3333333333333
       Region2.Color = clGreen
       Region2.FromValue = 83.3333333333333
       Region2.ToValue = 116.666666666667
@@ -318,6 +121,7 @@ object WS600: TWS600
       SetPoint.Shape = voBitmap
       SetPoint.Color = clBlue
       SetPoint.Visible = False
+      PeakMin.Value = 70
       PeakMin.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -337,6 +141,7 @@ object WS600: TWS600
       PeakMax.Shape = voTriangle
       PeakMax.Color = clYellow
       PeakMax.Visible = False
+      Value.Value = 100
       Value.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -357,20 +162,23 @@ object WS600: TWS600
       ParentFont = False
     end
     object RMeter: TvrLineMeter
-      Left = 304
+      Left = 200
       Top = 16
       Width = 90
       Height = 230
       Scale.FormatText = '%s'
       Scale.Max = 300
+      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 50
       Scale.SmallStep = 10
       Scale.HeightMax = 14
       Scale.HeightMin = 8
       Region1.Color = clYellow
+      Region1.FromValue = 50
       Region1.ToValue = 300
       Region2.Color = clGreen
+      Region2.FromValue = 83.3333333333333
       Region2.ToValue = 300
       Region2.Visible = False
       Region3.Color = clRed
@@ -387,6 +195,7 @@ object WS600: TWS600
       SetPoint.Shape = voBitmap
       SetPoint.Color = clBlue
       SetPoint.Visible = False
+      PeakMin.Value = 70
       PeakMin.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -406,6 +215,7 @@ object WS600: TWS600
       PeakMax.Shape = voTriangle
       PeakMax.Color = clYellow
       PeakMax.Visible = False
+      Value.Value = 100
       Value.Bitmap.Data = {
         9A000000424D9A00000000000000760000002800000006000000090000000100
         0400000000002400000000000000000000001000000000000000000000000000
@@ -426,11 +236,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 115
+      Left = 11
       Top = 249
-      Width = 40
+      Width = 15
       Height = 13
-      Caption = 'Humidity'
+      Caption = 'CO'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -439,11 +249,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 171
+      Left = 67
       Top = 269
-      Width = 8
+      Width = 33
       Height = 13
-      Caption = '%'
+      Caption = 'mg/m3'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -452,11 +262,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 265
+      Left = 161
       Top = 268
-      Width = 18
+      Width = 33
       Height = 13
-      Caption = 'hpa'
+      Caption = 'mg/m3'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -465,11 +275,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 209
+      Left = 105
       Top = 247
-      Width = 93
+      Width = 21
       Height = 13
-      Caption = 'Barometric pressure'
+      Caption = 'SO2'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -478,11 +288,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 363
+      Left = 259
       Top = 268
-      Width = 30
+      Width = 33
       Height = 13
-      Caption = 'W/m2'
+      Caption = 'mg/m3'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -491,11 +301,11 @@ object WS600: TWS600
       ParentFont = False
     end
     object Label10: TLabel
-      Left = 307
+      Left = 203
       Top = 249
-      Width = 86
+      Width = 22
       Height = 13
-      Caption = 'Radiation intensity'
+      Caption = 'NO2'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clLime
       Font.Height = -11
@@ -503,9 +313,9 @@ object WS600: TWS600
       Font.Style = []
       ParentFont = False
     end
-    object TEdit: TVrStrEdit
+    object COEdit: TVrStrEdit
       Left = 13
-      Top = 264
+      Top = 262
       Width = 49
       Height = 21
       Alignment = taLeftJustify
@@ -518,23 +328,8 @@ object WS600: TWS600
       TabOrder = 0
       Text = '0.0'
     end
-    object HEdit: TVrStrEdit
-      Left = 117
-      Top = 262
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      Text = '0.0'
-    end
     object PEdit: TVrStrEdit
-      Left = 211
+      Left = 107
       Top = 261
       Width = 49
       Height = 21
@@ -545,11 +340,11 @@ object WS600: TWS600
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 1
       Text = '0.0'
     end
     object REdit: TVrStrEdit
-      Left = 309
+      Left = 205
       Top = 262
       Width = 49
       Height = 21
@@ -560,181 +355,7 @@ object WS600: TWS600
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
-      Text = '0.0'
-    end
-  end
-  object GroupBox3: TGroupBox
-    Left = 8
-    Top = 232
-    Width = 393
-    Height = 73
-    Caption = 'Rainfall'
-    Color = clBackground
-    ParentColor = False
-    TabOrder = 2
-    object Label11: TLabel
-      Left = 19
-      Top = 17
-      Width = 44
-      Height = 13
-      Caption = '1 Minute:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label12: TLabel
-      Left = 119
-      Top = 18
-      Width = 16
-      Height = 13
-      Caption = 'mm'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label13: TLabel
-      Left = 119
-      Top = 42
-      Width = 16
-      Height = 13
-      Caption = 'mm'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label14: TLabel
-      Left = 19
-      Top = 41
-      Width = 41
-      Height = 13
-      Caption = '1 Houre:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label15: TLabel
-      Left = 279
-      Top = 18
-      Width = 16
-      Height = 13
-      Caption = 'mm'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label16: TLabel
-      Left = 279
-      Top = 42
-      Width = 16
-      Height = 13
-      Caption = 'mm'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label17: TLabel
-      Left = 179
-      Top = 41
-      Width = 35
-      Height = 13
-      Caption = 'History:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label18: TLabel
-      Left = 179
-      Top = 17
-      Width = 46
-      Height = 13
-      Caption = '24 Horse:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object RM: TVrStrEdit
-      Left = 66
-      Top = 14
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      Text = '0.0'
-    end
-    object RH: TVrStrEdit
-      Left = 66
-      Top = 38
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      Text = '0.0'
-    end
-    object RD: TVrStrEdit
-      Left = 226
-      Top = 14
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
       TabOrder = 2
-      Text = '0.0'
-    end
-    object RT: TVrStrEdit
-      Left = 226
-      Top = 38
-      Width = 49
-      Height = 21
-      Alignment = taLeftJustify
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clLime
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
       Text = '0.0'
     end
   end

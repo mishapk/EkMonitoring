@@ -39,7 +39,7 @@ object WS600: TWS600
       Font.Name = 'MS Sans Serif'
       Font.Style = []
     end
-    object VrAngularMeter2: TVrAngularMeter
+    object WSMeter: TVrAngularMeter
       Left = 192
       Top = 24
       Width = 180
@@ -100,7 +100,7 @@ object WS600: TWS600
       TabOrder = 0
       Text = '0.0'
     end
-    object VrStrEdit2: TVrStrEdit
+    object WSEdit: TVrStrEdit
       Left = 261
       Top = 192
       Width = 49
@@ -120,7 +120,7 @@ object WS600: TWS600
     Left = 400
     Top = 8
     Width = 401
-    Height = 289
+    Height = 297
     Caption = 'PTU'
     Color = clBackground
     ParentColor = False

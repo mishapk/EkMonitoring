@@ -23,6 +23,7 @@
 #include <TeeProcs.hpp>
 #include <Series.hpp>
 #include "fr.h"
+#include "frga100.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -55,7 +56,7 @@ __published:	// IDE-managed Components
         TSpeedButton *SpeedButton8;
         TSpeedButton *SpeedButton9;
         TLineSeries *Series1;
-        TWS600 *WS6001;
+        TPageControl *PageControlDevices;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);
@@ -64,13 +65,21 @@ __published:	// IDE-managed Components
         void __fastcall Shape1MouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
         void __fastcall Button1Click(TObject *Sender);
+        void __fastcall FormActivate(TObject *Sender);
 private:	// User declarations
      void __fastcall IniSettings(bool read=0); //Чтение/запись настроек INI файл
      void __fastcall GetSerialPortsList(); //Получение списка comportov
+     void __fastcall CreateTabDevices(); //Создание закладок устройств из Б.Д.
+
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
         TComPort * ComPort;
-
+        struct TFR
+        {
+         TFrame ** FR;
+         int NFR;
+        }UFR;
+        int __fastcall getIndexFR(AnsiString name);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

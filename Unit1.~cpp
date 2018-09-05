@@ -24,7 +24,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
     GetSerialPortsList();
     ComPort=new TComPort(true);
     ComPort->FreeOnTerminate=true;
-
+    
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::IniSettings(bool read)
@@ -136,8 +136,62 @@ void __fastcall TForm1::Shape1MouseUp(TObject *Sender, TMouseButton Button,
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-  ShowMessage(DateTimeToStr(Now()));        
+  ((TWS600*)Form1->FindComponent("ID7"))->SetValue(0,50);
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::CreateTabDevices()
+{
+     TADOTable *ADO;
+  ADO = new TADOTable(NULL);
+  ADO->Connection=DataModule2->ADOConnection;
+  ADO->TableName="DEVICE";
 
+  ADO->Active=true;
+
+  UFR.FR= new TFrame*[ ADO->RecordCount];
+  ADO->Sort="ID DESC";
+  ADO->First();
+
+  while(!ADO->Eof)
+  {
+
+   TTabSheet *crl1=new TTabSheet(this);
+   crl1->PageControl=PageControlDevices;
+   crl1->Caption=ADO->Fields->FieldByName("NameDevice")->AsString;
+   int WidgetType=ADO->Fields->FieldByName("WidgetType")->AsInteger;
+   int ID=ADO->Fields->FieldByName("ID")->AsInteger;
+   int index=ADO->RecNo-1;
+   UFR.NFR=ADO->RecordCount;
+   switch (WidgetType)
+   {
+    case 0: UFR.FR[index]=new TWS600(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
+    case 1: UFR.FR[index]=new TGA100(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
+   };
+
+    ADO->Next();
+  }
+   ADO->Active=false;
+   ADO->Free();
+   FindControl("ID7")->Free();
+
+
+}
+
+ //-------------------------------------------------------------------------------
+void __fastcall TForm1::FormActivate(TObject *Sender)
+{
+ CreateTabDevices();
+
+}
+//---------------------------------------------------------------------------
+int __fastcall TForm1::getIndexFR(AnsiString name)
+{
+  for(int i=0;i<UFR.NFR;i++)
+  {
+   if(name==UFR.FR[i]->Name)
+   return i;
+
+  }
+  return -1;
+}
 

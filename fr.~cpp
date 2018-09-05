@@ -19,3 +19,21 @@ __fastcall TWS600::TWS600(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+ void __fastcall TWS600::SetValue(int ID,float value)
+ {
+
+   switch (ID)
+   {
+     case 0: WSMeter->Position=value; WSEdit->Text=FloatToStr(value);break;//WindSpeed
+     case 2:break; //WindAngle
+     case 4:break; //Temperatrure
+     case 6:break; //Relative Humidity
+     case 8:break; //Pressure
+     case 10:break; //Minute Precipitation
+     case 12:break; //Houre Precipitation
+     case 14:break; //Day Precipitation
+     case 16:break; //Total Precipitation
+     case 18:break; //radiation intencity
+   }
+ }

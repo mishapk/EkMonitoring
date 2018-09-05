@@ -6,6 +6,7 @@
 USEFORM("Unit1.cpp", Form1);
 USEFORM("DataModule.cpp", DataModule2); /* TDataModule: File Type */
 USEFORM("fr.cpp", WS600); /* TFrame: File Type */
+USEFORM("frga100.cpp", GA100); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
