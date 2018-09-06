@@ -16,16 +16,19 @@ object DataModule2: TDataModule2
     Left = 32
     Top = 16
   end
-  object DataSource1: TDataSource
-    DataSet = ADOTable1
+  object DataSourceTag: TDataSource
+    DataSet = ADOTableTag
     Left = 24
     Top = 96
   end
-  object ADOTable1: TADOTable
+  object ADOTableTag: TADOTable
     Active = True
     Connection = ADOConnection
     CursorType = ctStatic
-    TableName = 'DEVICE_TAG'
+    IndexFieldNames = 'ID_DEVICE'
+    MasterFields = 'ID'
+    MasterSource = DataSourceDevices
+    TableName = 'TAG'
     Left = 24
     Top = 136
   end
@@ -37,18 +40,29 @@ object DataModule2: TDataModule2
   end
   object DataSourceChart: TDataSource
     DataSet = ADOTableChart
-    Left = 184
-    Top = 88
+    Left = 248
+    Top = 104
   end
   object ADOTableChart: TADOTable
     Active = True
     Connection = ADOConnection
     CursorType = ctStatic
     IndexFieldNames = 'ID_TAG'
-    MasterFields = 'TAG.ID'
-    MasterSource = DataSource1
     TableName = 'CHARTS'
-    Left = 184
-    Top = 128
+    Left = 248
+    Top = 144
+  end
+  object ADOTableDevice: TADOTable
+    Active = True
+    Connection = ADOConnection
+    CursorType = ctStatic
+    TableName = 'DEVICE'
+    Left = 104
+    Top = 136
+  end
+  object DataSourceDevices: TDataSource
+    DataSet = ADOTableDevice
+    Left = 96
+    Top = 96
   end
 end

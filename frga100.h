@@ -12,26 +12,35 @@
 #include "VrJogMeter.hpp"
 #include "vrLineMeter.hpp"
 #include "VrEdit.hpp"
+#include "VrScope.hpp"
 //---------------------------------------------------------------------------
 class TGA100 : public TFrame
 {
 __published:	// IDE-managed Components
-        TGroupBox *GroupBox2;
+        TGroupBox *GRBox;
         TvrLineMeter *Gaz1;
-        TvrLineMeter *PMeter;
-        TvrLineMeter *RMeter;
-        TLabel *Label5;
+        TvrLineMeter *Gaz2;
+        TvrLineMeter *Gaz3;
+        TLabel *Gaz1Label;
         TLabel *Label6;
         TLabel *Label7;
-        TLabel *Label8;
+        TLabel *Gaz2Label;
         TLabel *Label9;
-        TLabel *Label10;
-        TVrStrEdit *COEdit;
-        TVrStrEdit *PEdit;
-        TVrStrEdit *REdit;
+        TLabel *Gaz3Label;
+        TVrStrEdit *Gaz1Edit;
+        TVrStrEdit *Gaz2Edit;
+        TVrStrEdit *Gaz3Edit;
+        TGroupBox *GroupBox1;
+        TGroupBox *Gaz3GB;
+        TGroupBox *Gaz2GB;
+        TGroupBox *Gaz1GB;
+        TVrScope *Gaz1Scope;
+        TVrScope *Gaz2Scope;
+        TVrScope *Gaz3Scope;
 private:	// User declarations
 public:		// User declarations
         __fastcall TGA100(TComponent* Owner);
+         void __fastcall SetValue(int ID,float value,AnsiString gaz);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TGA100 *GA100;

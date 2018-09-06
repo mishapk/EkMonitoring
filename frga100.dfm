@@ -1,10 +1,10 @@
 object GA100: TGA100
   Left = 0
   Top = 0
-  Width = 305
-  Height = 303
+  Width = 792
+  Height = 455
   TabOrder = 0
-  object GroupBox2: TGroupBox
+  object GRBox: TGroupBox
     Left = 0
     Top = 0
     Width = 297
@@ -18,9 +18,9 @@ object GA100: TGA100
       Top = 16
       Width = 90
       Height = 230
+      Scale.Decimals = 1
       Scale.FormatText = '%s'
       Scale.Max = 100
-      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 20
       Scale.SmallStep = 10
@@ -28,7 +28,6 @@ object GA100: TGA100
       Scale.HeightMin = 8
       Region1.Color = clAqua
       Region1.FromValue = 100
-      Region1.ToValue = 83.3333333333333
       Region2.Color = clGreen
       Region2.FromValue = 100
       Region2.ToValue = 100
@@ -87,14 +86,14 @@ object GA100: TGA100
       ParentColor = False
       ParentFont = False
     end
-    object PMeter: TvrLineMeter
+    object Gaz2: TvrLineMeter
       Left = 104
       Top = 16
       Width = 90
       Height = 230
+      Scale.Decimals = 1
       Scale.FormatText = '%s'
       Scale.Max = 1500
-      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 250
       Scale.SmallStep = 100
@@ -102,7 +101,6 @@ object GA100: TGA100
       Scale.HeightMin = 8
       Region1.Color = clOlive
       Region1.FromValue = 1500
-      Region1.ToValue = 83.3333333333333
       Region2.Color = clGreen
       Region2.FromValue = 83.3333333333333
       Region2.ToValue = 116.666666666667
@@ -161,14 +159,14 @@ object GA100: TGA100
       ParentColor = False
       ParentFont = False
     end
-    object RMeter: TvrLineMeter
+    object Gaz3: TvrLineMeter
       Left = 200
       Top = 16
       Width = 90
       Height = 230
+      Scale.Decimals = 1
       Scale.FormatText = '%s'
       Scale.Max = 300
-      Scale.Min = 50
       Scale.Offset = 20
       Scale.Step = 50
       Scale.SmallStep = 10
@@ -176,7 +174,6 @@ object GA100: TGA100
       Scale.HeightMin = 8
       Region1.Color = clYellow
       Region1.FromValue = 50
-      Region1.ToValue = 300
       Region2.Color = clGreen
       Region2.FromValue = 83.3333333333333
       Region2.ToValue = 300
@@ -235,7 +232,7 @@ object GA100: TGA100
       ParentColor = False
       ParentFont = False
     end
-    object Label5: TLabel
+    object Gaz1Label: TLabel
       Left = 11
       Top = 249
       Width = 15
@@ -274,7 +271,7 @@ object GA100: TGA100
       Font.Style = []
       ParentFont = False
     end
-    object Label8: TLabel
+    object Gaz2Label: TLabel
       Left = 105
       Top = 247
       Width = 21
@@ -300,7 +297,7 @@ object GA100: TGA100
       Font.Style = []
       ParentFont = False
     end
-    object Label10: TLabel
+    object Gaz3Label: TLabel
       Left = 203
       Top = 249
       Width = 22
@@ -313,7 +310,7 @@ object GA100: TGA100
       Font.Style = []
       ParentFont = False
     end
-    object COEdit: TVrStrEdit
+    object Gaz1Edit: TVrStrEdit
       Left = 13
       Top = 262
       Width = 49
@@ -328,7 +325,7 @@ object GA100: TGA100
       TabOrder = 0
       Text = '0.0'
     end
-    object PEdit: TVrStrEdit
+    object Gaz2Edit: TVrStrEdit
       Left = 107
       Top = 261
       Width = 49
@@ -343,7 +340,7 @@ object GA100: TGA100
       TabOrder = 1
       Text = '0.0'
     end
-    object REdit: TVrStrEdit
+    object Gaz3Edit: TVrStrEdit
       Left = 205
       Top = 262
       Width = 49
@@ -357,6 +354,85 @@ object GA100: TGA100
       ParentFont = False
       TabOrder = 2
       Text = '0.0'
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 304
+    Top = 0
+    Width = 377
+    Height = 297
+    Caption = 'Graphs'
+    TabOrder = 1
+    object Gaz3GB: TGroupBox
+      Left = 2
+      Top = 185
+      Width = 373
+      Height = 85
+      Align = alTop
+      Color = clBtnFace
+      ParentColor = False
+      TabOrder = 0
+      object Gaz3Scope: TVrScope
+        Left = 2
+        Top = 15
+        Width = 369
+        Height = 68
+        Interval = 100
+        Channels = <
+          item
+          end>
+        Frequency = 1
+        Threaded = True
+        Align = alClient
+      end
+    end
+    object Gaz2GB: TGroupBox
+      Left = 2
+      Top = 100
+      Width = 373
+      Height = 85
+      Align = alTop
+      Color = clBtnFace
+      ParentColor = False
+      TabOrder = 1
+      object Gaz2Scope: TVrScope
+        Left = 2
+        Top = 15
+        Width = 369
+        Height = 68
+        Interval = 100
+        Channels = <
+          item
+            Color = clOlive
+          end>
+        Frequency = 1
+        Threaded = True
+        Align = alClient
+      end
+    end
+    object Gaz1GB: TGroupBox
+      Left = 2
+      Top = 15
+      Width = 373
+      Height = 85
+      Align = alTop
+      Color = clBtnFace
+      ParentColor = False
+      TabOrder = 2
+      object Gaz1Scope: TVrScope
+        Left = 2
+        Top = 15
+        Width = 369
+        Height = 68
+        Interval = 100
+        Channels = <
+          item
+            Color = clAqua
+          end>
+        Frequency = 1
+        Threaded = True
+        Align = alClient
+      end
     end
   end
 end

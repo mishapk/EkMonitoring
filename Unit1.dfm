@@ -21,10 +21,10 @@ object Form1: TForm1
     Top = 0
     Width = 874
     Height = 435
-    ActivePage = TabSheet4
+    ActivePage = TabSheet2
     Align = alClient
     MultiLine = True
-    TabIndex = 3
+    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1043#1083#1072#1074#1085#1072#1103
@@ -42,104 +42,25 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = #1058#1072#1073#1083#1080#1094#1072
       ImageIndex = 1
-      object GroupBox2: TGroupBox
+      object GroupBox3: TGroupBox
         Left = 0
         Top = 0
-        Width = 185
-        Height = 407
-        Align = alLeft
-        Caption = #1059#1089#1090#1088#1086#1081#1089#1090#1074#1086
-        TabOrder = 0
-        Visible = False
-      end
-      object GroupBox3: TGroupBox
-        Left = 185
-        Top = 0
-        Width = 681
+        Width = 866
         Height = 407
         Align = alClient
         Caption = #1055#1086#1082#1072#1079#1072#1090#1077#1083#1080
-        TabOrder = 1
-        object DBGrid3: TDBGrid
-          Left = 2
-          Top = 15
-          Width = 677
-          Height = 120
-          Align = alClient
-          DataSource = DataModule2.DataSource1
-          TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -11
-          TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = []
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'NameDevice'
-              Width = 100
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Address'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'TagName'
-              Width = 80
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Memory_Type'
-              Width = 50
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Offset'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Date_Type'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Tenths'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Date_value'
-              Width = 50
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Units'
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Enabled'
-              Visible = True
-            end>
-        end
+        TabOrder = 0
         object GroupBox4: TGroupBox
           Left = 2
           Top = 135
-          Width = 677
+          Width = 862
           Height = 270
           Align = alBottom
-          TabOrder = 1
+          TabOrder = 0
           object GroupBox5: TGroupBox
             Left = 2
             Top = 216
-            Width = 673
+            Width = 858
             Height = 52
             Align = alBottom
             TabOrder = 0
@@ -211,7 +132,7 @@ object Form1: TForm1
           object DBChart1: TDBChart
             Left = 2
             Top = 15
-            Width = 673
+            Width = 858
             Height = 201
             BackWall.Brush.Color = clWhite
             BackWall.Brush.Style = bsClear
@@ -242,11 +163,161 @@ object Form1: TForm1
             end
           end
         end
+        object GroupBox2: TGroupBox
+          Left = 2
+          Top = 15
+          Width = 862
+          Height = 105
+          Align = alTop
+          TabOrder = 1
+          object DBGrid3: TDBGrid
+            Left = 201
+            Top = 15
+            Width = 659
+            Height = 88
+            Align = alClient
+            DataSource = DataModule2.DataSourceTag
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'MS Sans Serif'
+            TitleFont.Style = []
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'TagName'
+                Width = 200
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Offset'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Date_value'
+                Width = 60
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Units'
+                Visible = True
+              end>
+          end
+          object DBGrid1: TDBGrid
+            Left = 2
+            Top = 15
+            Width = 199
+            Height = 88
+            Align = alLeft
+            DataSource = DataModule2.DataSourceDevices
+            TabOrder = 1
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'MS Sans Serif'
+            TitleFont.Style = []
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'NameDevice'
+                Width = 100
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Address'
+                Width = 30
+                Visible = True
+              end>
+          end
+        end
       end
     end
     object TabSheet3: TTabSheet
       Caption = #1046#1091#1088#1085#1072#1083
       ImageIndex = 2
+      object DBGrid2: TDBGrid
+        Left = 64
+        Top = 0
+        Width = 320
+        Height = 120
+        DataSource = DataModule2.DataSourceDevices
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+      end
+      object DBGrid4: TDBGrid
+        Left = 64
+        Top = 128
+        Width = 320
+        Height = 120
+        DataSource = DataModule2.DataSourceTag
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+      end
+      object DBGrid5: TDBGrid
+        Left = 64
+        Top = 256
+        Width = 320
+        Height = 120
+        DataSource = DataModule2.DataSourceChart
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+      end
+      object DBChart2: TDBChart
+        Left = 400
+        Top = 72
+        Width = 400
+        Height = 250
+        BackWall.Brush.Color = clWhite
+        BackWall.Brush.Style = bsClear
+        Title.Text.Strings = (
+          'TDBChart')
+        TabOrder = 3
+        object Series2: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          DataSource = DataModule2.ADOTableChart
+          SeriesColor = clRed
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = True
+          XValues.Name = 'X'
+          XValues.Multiplier = 1
+          XValues.Order = loAscending
+          XValues.ValueSource = 'DateValue'
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1
+          YValues.Order = loNone
+          YValues.ValueSource = 'DateValue'
+        end
+      end
+      object Button2: TButton
+        Left = 496
+        Top = 24
+        Width = 75
+        Height = 25
+        Caption = 'Button2'
+        TabOrder = 4
+        OnClick = Button2Click
+      end
     end
     object TabSheet4: TTabSheet
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080

@@ -41,7 +41,6 @@ __published:	// IDE-managed Components
         TComboBox *CBBaude;
         TComboBox *CBNport;
         TStatusBar *StatusBar1;
-        TGroupBox *GroupBox2;
         TGroupBox *GroupBox3;
         TDBGrid *DBGrid3;
         TGroupBox *GroupBox4;
@@ -57,6 +56,8 @@ __published:	// IDE-managed Components
         TSpeedButton *SpeedButton9;
         TLineSeries *Series1;
         TPageControl *PageControlDevices;
+        TGroupBox *GroupBox2;
+        TDBGrid *DBGrid1;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);

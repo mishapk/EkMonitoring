@@ -22,7 +22,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 {
     IniSettings(true);
     GetSerialPortsList();
-    ComPort=new TComPort(true);
+   ComPort=new TComPort(true);
     ComPort->FreeOnTerminate=true;
     
 }
@@ -48,7 +48,7 @@ void __fastcall TForm1::IniSettings(bool read)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
   IniSettings();
-  
+ if(ComPort)ComPort->Suspend(); 
  if(ComPort)ComPort->Terminate();
 }
 //---------------------------------------------------------------------------
@@ -136,7 +136,7 @@ void __fastcall TForm1::Shape1MouseUp(TObject *Sender, TMouseButton Button,
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-  ((TWS600*)Form1->FindComponent("ID7"))->SetValue(0,50);
+  //((TPM100*)Form1->FindComponent("ID20"))->SetValue(20,0.55,"kgb");
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::CreateTabDevices()
@@ -166,6 +166,7 @@ void __fastcall TForm1::CreateTabDevices()
    {
     case 0: UFR.FR[index]=new TWS600(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
     case 1: UFR.FR[index]=new TGA100(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
+    case 2: UFR.FR[index]=new TPM100(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
    };
 
     ADO->Next();
@@ -194,4 +195,13 @@ int __fastcall TForm1::getIndexFR(AnsiString name)
   }
   return -1;
 }
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+  Form1->DBChart2->RefreshData();
+  Form1->DBChart1->RefreshData();
+}
+//---------------------------------------------------------------------------
+
+
 

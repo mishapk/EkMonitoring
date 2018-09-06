@@ -25,7 +25,7 @@ void __fastcall TComPort::UpdateCaption()
 __fastcall TComPort::TComPort(bool CreateSuspended)
         : TThread(CreateSuspended)
 {
-  TIMEOUT = 1000;
+  TIMEOUT = 200;
 }
 
 //---------------------------------------------------------------------------
@@ -42,8 +42,8 @@ void __fastcall TComPort::Execute()
 //---------------------------------------------------------------------------
 void __fastcall TComPort::Connect(const AnsiString& port, int baudrate)
 {
-   	Disconnect();
-        getDB_data();
+     	Disconnect();
+     //   getDB_data();
  	m_Handle =
  		CreateFile(
  		port.c_str(),
@@ -229,6 +229,7 @@ void _fastcall TComPort::getDB_data()
   while(!ADO->Eof)
   {
 
+    if(!ADO->Fields->FieldByName("device.Enabled")->AsBoolean) {ADO->Next();continue;}
     if(!ADO->Fields->FieldByName("tag.Enabled")->AsBoolean) {ADO->Next();continue;}
     //--------------------------------
      U.data.adr=ADO->Fields->FieldByName("Address")->AsInteger;
@@ -254,9 +255,6 @@ void _fastcall TComPort::getDB_data()
        ADO->Fields->FieldByName("Date_value")->AsString=FloatToStrF(value,ffGeneral,4,3);
        ADO->Post();
        ADDtoCharts(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
-      // int idx=Form1->getIndexFR("ID"+ADO->Fields->FieldByName("TAG.ID")->AsString);
-      // ((TWS600*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("TAG.ID")->AsString))->SetValue(0,value);
-       //((TWS600*)Form1->UFR.FR[idx])->SetValue(1,value);
 
      }
      if(ADO->Fields->FieldByName("Date_type")->AsInteger==0)
@@ -273,9 +271,11 @@ void _fastcall TComPort::getDB_data()
     switch (WidgetType)
    {
     case 0: ((TWS600*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("Device.ID")->AsString))->SetValue(ADO->Fields->FieldByName("Offset")->AsInteger,value);break;
+    case 1: ((TGA100*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("Device.ID")->AsString))->SetValue(ADO->Fields->FieldByName("Offset")->AsInteger,value,ADO->Fields->FieldByName("TagName")->AsString);break;
+    case 2: ((TPM100*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("Device.ID")->AsString))->SetValue(ADO->Fields->FieldByName("Offset")->AsInteger,value,ADO->Fields->FieldByName("TagName")->AsString);break;
    }
     ;
-     Sleep(1000);
+     Sleep(10);
     //---------------------------------
 
     ADO->Next();

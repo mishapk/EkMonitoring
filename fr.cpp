@@ -22,7 +22,7 @@ __fastcall TWS600::TWS600(TComponent* Owner)
 
  void __fastcall TWS600::SetValue(int ID,float value)
  {
-   AnsiString FT=FloatToStr(value);
+   AnsiString FT=FloatToStrF(value,ffGeneral,4,3);
    switch (ID)
    {
      case 0: WSMeter->Position=value; WSEdit->Text=FT;break;     //WindSpeed

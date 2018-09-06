@@ -22,3 +22,5 @@ void __fastcall TDataModule2::Timer1Timer(TObject *Sender)
 // Form1->DBChart1->RefreshData();
 }
 //---------------------------------------------------------------------------
+
+

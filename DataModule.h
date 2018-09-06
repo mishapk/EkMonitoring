@@ -15,11 +15,13 @@ class TDataModule2 : public TDataModule
 {
 __published:	// IDE-managed Components
         TADOConnection *ADOConnection;
-        TDataSource *DataSource1;
-        TADOTable *ADOTable1;
+        TDataSource *DataSourceTag;
+        TADOTable *ADOTableTag;
         TTimer *Timer1;
         TDataSource *DataSourceChart;
         TADOTable *ADOTableChart;
+        TADOTable *ADOTableDevice;
+        TDataSource *DataSourceDevices;
         void __fastcall Timer1Timer(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
