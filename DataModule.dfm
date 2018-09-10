@@ -2,8 +2,8 @@ object DataModule2: TDataModule2
   OldCreateOrder = False
   Left = 370
   Top = 278
-  Height = 246
-  Width = 386
+  Height = 332
+  Width = 557
   object ADOConnection: TADOConnection
     Connected = True
     ConnectionString = 
@@ -66,5 +66,18 @@ object DataModule2: TDataModule2
     DataSet = ADOTableDevice
     Left = 96
     Top = 96
+  end
+  object DataSourceAlarmHistory: TDataSource
+    DataSet = ADOTableAlarmHistory
+    Left = 368
+    Top = 112
+  end
+  object ADOTableAlarmHistory: TADOTable
+    Active = True
+    Connection = ADOConnection
+    CursorType = ctStatic
+    TableName = 'HIASTORY_ALARM_ZAPROS'
+    Left = 368
+    Top = 152
   end
 end

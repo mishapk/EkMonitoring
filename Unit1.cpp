@@ -137,6 +137,7 @@ void __fastcall TForm1::Shape1MouseUp(TObject *Sender, TMouseButton Button,
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
   //((TPM100*)Form1->FindComponent("ID20"))->SetValue(20,0.55,"kgb");
+  
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::CreateTabDevices()
@@ -182,7 +183,8 @@ void __fastcall TForm1::CreateTabDevices()
 void __fastcall TForm1::FormActivate(TObject *Sender)
 {
  CreateTabDevices();
-
+ SpeedButton1->Down=true;
+ SpeedButton1Click(Sender);
 }
 //---------------------------------------------------------------------------
 int __fastcall TForm1::getIndexFR(AnsiString name)
@@ -198,10 +200,19 @@ int __fastcall TForm1::getIndexFR(AnsiString name)
 
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-  Form1->DBChart2->RefreshData();
-  Form1->DBChart1->RefreshData();
+ // Form1->DBChart2->RefreshData();
+ // Form1->DBChart1->RefreshData();
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::DBGrid3CellClick(TColumn *Column)
+{
+ // DataModule2->DataSourceChart->DataSet->Refresh();
+  Form1->DBChart1->RefreshData();
+
+}
+//---------------------------------------------------------------------------
 
 

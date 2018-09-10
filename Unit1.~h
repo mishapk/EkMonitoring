@@ -24,6 +24,7 @@
 #include <Series.hpp>
 #include "fr.h"
 #include "frga100.h"
+#include "FRPM100.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -58,6 +59,8 @@ __published:	// IDE-managed Components
         TPageControl *PageControlDevices;
         TGroupBox *GroupBox2;
         TDBGrid *DBGrid1;
+        TPanel *Panel1;
+        TDBGrid *DBGrid2;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);
@@ -67,6 +70,8 @@ __published:	// IDE-managed Components
           TShiftState Shift, int X, int Y);
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall FormActivate(TObject *Sender);
+        void __fastcall Button2Click(TObject *Sender);
+        void __fastcall DBGrid3CellClick(TColumn *Column);
 private:	// User declarations
      void __fastcall IniSettings(bool read=0); //Чтение/запись настроек INI файл
      void __fastcall GetSerialPortsList(); //Получение списка comportov

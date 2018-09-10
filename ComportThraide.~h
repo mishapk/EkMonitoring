@@ -65,6 +65,7 @@ protected:
         void __fastcall Read(unsigned char *data,DWORD len_);
         void __fastcall getDB_data();
         void __fastcall ADDtoCharts(int TagID, float value);
+        void __fastcall CompareAlarm(int TagID, float value);
         unsigned short __fastcall SwapBytes(unsigned short value);
         HANDLE m_Handle;
          int TIMEOUT;

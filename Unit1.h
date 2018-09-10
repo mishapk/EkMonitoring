@@ -59,12 +59,8 @@ __published:	// IDE-managed Components
         TPageControl *PageControlDevices;
         TGroupBox *GroupBox2;
         TDBGrid *DBGrid1;
+        TPanel *Panel1;
         TDBGrid *DBGrid2;
-        TDBGrid *DBGrid4;
-        TDBGrid *DBGrid5;
-        TDBChart *DBChart2;
-        TLineSeries *Series2;
-        TButton *Button2;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);
@@ -75,6 +71,7 @@ __published:	// IDE-managed Components
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall FormActivate(TObject *Sender);
         void __fastcall Button2Click(TObject *Sender);
+        void __fastcall DBGrid3CellClick(TColumn *Column);
 private:	// User declarations
      void __fastcall IniSettings(bool read=0); //Чтение/запись настроек INI файл
      void __fastcall GetSerialPortsList(); //Получение списка comportov

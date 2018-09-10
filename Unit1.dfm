@@ -21,10 +21,10 @@ object Form1: TForm1
     Top = 0
     Width = 874
     Height = 435
-    ActivePage = TabSheet2
+    ActivePage = TabSheet3
     Align = alClient
     MultiLine = True
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1043#1083#1072#1074#1085#1072#1103
@@ -183,6 +183,7 @@ object Form1: TForm1
             TitleFont.Height = -11
             TitleFont.Name = 'MS Sans Serif'
             TitleFont.Style = []
+            OnCellClick = DBGrid3CellClick
             Columns = <
               item
                 Expanded = False
@@ -240,83 +241,27 @@ object Form1: TForm1
     object TabSheet3: TTabSheet
       Caption = #1046#1091#1088#1085#1072#1083
       ImageIndex = 2
-      object DBGrid2: TDBGrid
-        Left = 64
-        Top = 0
-        Width = 320
-        Height = 120
-        DataSource = DataModule2.DataSourceDevices
+      object Panel1: TPanel
+        Left = 0
+        Top = 336
+        Width = 866
+        Height = 71
+        Align = alBottom
         TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'MS Sans Serif'
-        TitleFont.Style = []
       end
-      object DBGrid4: TDBGrid
-        Left = 64
-        Top = 128
-        Width = 320
-        Height = 120
-        DataSource = DataModule2.DataSourceTag
+      object DBGrid2: TDBGrid
+        Left = 0
+        Top = 0
+        Width = 866
+        Height = 336
+        Align = alClient
+        DataSource = DataModule2.DataSourceAlarmHistory
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
-      end
-      object DBGrid5: TDBGrid
-        Left = 64
-        Top = 256
-        Width = 320
-        Height = 120
-        DataSource = DataModule2.DataSourceChart
-        TabOrder = 2
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'MS Sans Serif'
-        TitleFont.Style = []
-      end
-      object DBChart2: TDBChart
-        Left = 400
-        Top = 72
-        Width = 400
-        Height = 250
-        BackWall.Brush.Color = clWhite
-        BackWall.Brush.Style = bsClear
-        Title.Text.Strings = (
-          'TDBChart')
-        TabOrder = 3
-        object Series2: TLineSeries
-          Marks.ArrowLength = 8
-          Marks.Visible = False
-          DataSource = DataModule2.ADOTableChart
-          SeriesColor = clRed
-          Pointer.InflateMargins = True
-          Pointer.Style = psRectangle
-          Pointer.Visible = False
-          XValues.DateTime = True
-          XValues.Name = 'X'
-          XValues.Multiplier = 1
-          XValues.Order = loAscending
-          XValues.ValueSource = 'DateValue'
-          YValues.DateTime = False
-          YValues.Name = 'Y'
-          YValues.Multiplier = 1
-          YValues.Order = loNone
-          YValues.ValueSource = 'DateValue'
-        end
-      end
-      object Button2: TButton
-        Left = 496
-        Top = 24
-        Width = 75
-        Height = 25
-        Caption = 'Button2'
-        TabOrder = 4
-        OnClick = Button2Click
       end
     end
     object TabSheet4: TTabSheet

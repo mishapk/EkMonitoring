@@ -22,6 +22,8 @@ __published:	// IDE-managed Components
         TADOTable *ADOTableChart;
         TADOTable *ADOTableDevice;
         TDataSource *DataSourceDevices;
+        TDataSource *DataSourceAlarmHistory;
+        TADOTable *ADOTableAlarmHistory;
         void __fastcall Timer1Timer(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
