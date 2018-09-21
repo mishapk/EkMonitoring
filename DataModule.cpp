@@ -17,10 +17,11 @@ __fastcall TDataModule2::TDataModule2(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TDataModule2::Timer1Timer(TObject *Sender)
 {
-// DataSource1->DataSet->Refresh();
+ DataSourceTag->DataSet->Refresh();
  //DataSourceChart->DataSet->Refresh();
 // Form1->DBChart1->RefreshData();
 }
 //---------------------------------------------------------------------------
+
 
 

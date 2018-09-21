@@ -48,8 +48,12 @@ void __fastcall TForm1::IniSettings(bool read)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
   IniSettings();
- if(ComPort)ComPort->Suspend(); 
- if(ComPort)ComPort->Terminate();
+ SpeedButton1->Down=false;
+ SpeedButton1Click(Sender);
+ Sleep(1000);
+ //if(ComPort)ComPort->Suspend();
+// Sleep(1000);
+// if(ComPort)ComPort->Terminate();
 }
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
@@ -183,8 +187,9 @@ void __fastcall TForm1::CreateTabDevices()
 void __fastcall TForm1::FormActivate(TObject *Sender)
 {
  CreateTabDevices();
- SpeedButton1->Down=true;
- SpeedButton1Click(Sender);
+// SpeedButton1->Down=true;
+ //SpeedButton1Click(Sender);
+  DataModule2->ADOTableAlarmHistory->Sort="DATETIME DESC";
 }
 //---------------------------------------------------------------------------
 int __fastcall TForm1::getIndexFR(AnsiString name)
@@ -202,6 +207,28 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 {
  // Form1->DBChart2->RefreshData();
  // Form1->DBChart1->RefreshData();
+
+  AnsiString filter,data1,data2;
+  filter="";
+  DataModule2->ADOTableAlarmHistory->Filtered=false;
+
+      DateTimePicker1->Time=StrToTime("00:00:00");
+      DateTimePicker2->Time=StrToTime("23:59:59");
+      if(RadioGroup1->ItemIndex==1)
+        {
+               DateTimePicker1->Date=Now();
+               DateTimePicker2->Date=Now();
+
+        }
+        filter="(DATETIME >= #"+DateTimeToStr(DateTimePicker1->Date)+"#) AND (DATETIME <= #"+DateTimeToStr(DateTimePicker2->Date)+"#)";
+
+
+
+    DataModule2->ADOTableAlarmHistory->Filter=filter;
+    DataModule2->ADOTableAlarmHistory->Filtered=RadioGroup1->ItemIndex?true:false;
+
+    DataModule2->ADOTableAlarmHistory->Sort=RadioGroup2->ItemIndex?"DATETIME ASC":"DATETIME DESC";
+    
 }
 //---------------------------------------------------------------------------
 
@@ -210,9 +237,45 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::DBGrid3CellClick(TColumn *Column)
 {
  // DataModule2->DataSourceChart->DataSet->Refresh();
-  Form1->DBChart1->RefreshData();
+  //Form1->DBChart1->RefreshData();
 
 }
 //---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::DBGrid2DrawColumnCell(TObject *Sender,
+      const TRect &Rect, int DataCol, TColumn *Column,
+      TGridDrawState State)
+{
+ /*
+   if DBGrid1.DataSource.DataSet.FieldByName('zap_cat').AsInteger = 1 then
+  begin
+    DBGrid1.Canvas.Brush.Color := clMoneyGreen;
+    DBGrid1.Canvas.Font.Style := [];
+    DBGrid1.Canvas.Font.Color := clBlack;
+    DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+  end;
+ */
+
+ if(DBGrid2->DataSource->DataSet->FieldByName("STATUS")->AsBoolean)
+ {
+   DBGrid2->Canvas->Brush->Color=0x00AEAEFF;
+   DBGrid2->Canvas->Font->Color=clBlack;
+   DBGrid2->DefaultDrawColumnCell(Rect, DataCol, Column, State);
+
+
+ }
+
+  if(!DBGrid2->DataSource->DataSet->FieldByName("STATUS")->AsBoolean)
+ {
+   DBGrid2->Canvas->Brush->Color=clWhite;
+   DBGrid2->Canvas->Font->Color=clBlack;
+   DBGrid2->DefaultDrawColumnCell(Rect, DataCol, Column, State);
+
+ }
+
+}
+//---------------------------------------------------------------------------
+
 
 

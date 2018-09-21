@@ -5,12 +5,12 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="EkMonitoring.exe"/>
     <OBJFILES value="EkMonitoring.obj Unit1.obj ComportThraide.obj DataModule.obj fr.obj 
-      frga100.obj Unit2.obj"/>
+      frga100.obj FRPM100.obj"/>
     <RESFILES value="EkMonitoring.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm Unit2.dfm"/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm FRPM100.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="vcwb6.lib"/>
     <SPARELIBS value="vcl.lib rtl.lib adortl.lib dbrtl.lib vcldb.lib teedb.lib tee.lib vcwb6.lib"/>
@@ -63,7 +63,7 @@
       <FILE FILENAME="DataModule.cpp" FORMNAME="DataModule2" UNITNAME="DataModule" CONTAINERID="CCompiler" DESIGNCLASS="TDataModule" LOCALCOMMAND=""/>
       <FILE FILENAME="fr.cpp" FORMNAME="WS600" UNITNAME="fr" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
       <FILE FILENAME="frga100.cpp" FORMNAME="GA100" UNITNAME="frga100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit2.cpp" FORMNAME="Frame2" UNITNAME="Unit2" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
+      <FILE FILENAME="FRPM100.cpp" FORMNAME="PM100" UNITNAME="FRPM100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

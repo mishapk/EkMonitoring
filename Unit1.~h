@@ -25,6 +25,7 @@
 #include "fr.h"
 #include "frga100.h"
 #include "FRPM100.h"
+#include <DBCtrls.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -38,29 +39,28 @@ __published:	// IDE-managed Components
         TLabel *Label1;
         TLabel *Label2;
         TSpeedButton *SpeedButton1;
-        TButton *Button1;
         TComboBox *CBBaude;
         TComboBox *CBNport;
         TStatusBar *StatusBar1;
         TGroupBox *GroupBox3;
-        TDBGrid *DBGrid3;
-        TGroupBox *GroupBox4;
-        TGroupBox *GroupBox5;
-        TDBChart *DBChart1;
-        TSpeedButton *SpeedButton2;
-        TSpeedButton *SpeedButton3;
-        TSpeedButton *SpeedButton4;
-        TSpeedButton *SpeedButton5;
-        TSpeedButton *SpeedButton6;
-        TSpeedButton *SpeedButton7;
-        TSpeedButton *SpeedButton8;
-        TSpeedButton *SpeedButton9;
-        TLineSeries *Series1;
         TPageControl *PageControlDevices;
-        TGroupBox *GroupBox2;
-        TDBGrid *DBGrid1;
         TPanel *Panel1;
         TDBGrid *DBGrid2;
+        TRadioGroup *RadioGroup1;
+        TRadioGroup *RadioGroup2;
+        TButton *Button2;
+        TDateTimePicker *DateTimePicker1;
+        TDateTimePicker *DateTimePicker2;
+        TDBGrid *DBGrid3;
+        TDBGrid *DBGrid1;
+        TGroupBox *GroupBox2;
+        TPanel *Panel2;
+        TDBGrid *DBGrid4;
+        TDBNavigator *DBNavigator1;
+        TGroupBox *GroupBox4;
+        TPanel *Panel3;
+        TDBNavigator *DBNavigator2;
+        TDBGrid *DBGrid5;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);
@@ -72,6 +72,9 @@ __published:	// IDE-managed Components
         void __fastcall FormActivate(TObject *Sender);
         void __fastcall Button2Click(TObject *Sender);
         void __fastcall DBGrid3CellClick(TColumn *Column);
+        void __fastcall DBGrid2DrawColumnCell(TObject *Sender,
+          const TRect &Rect, int DataCol, TColumn *Column,
+          TGridDrawState State);
 private:	// User declarations
      void __fastcall IniSettings(bool read=0); //Чтение/запись настроек INI файл
      void __fastcall GetSerialPortsList(); //Получение списка comportov

@@ -60,6 +60,7 @@ private:
 protected:
         void __fastcall Execute();
         void __fastcall UpdateCaption();
+        void __fastcall UpdateHistoryTable();
         void __fastcall TTYException();
         void __fastcall Write(const unsigned char data[],int len);
         void __fastcall Read(unsigned char *data,DWORD len_);

@@ -1,7 +1,7 @@
 object DataModule2: TDataModule2
   OldCreateOrder = False
-  Left = 370
-  Top = 278
+  Left = 374
+  Top = 281
   Height = 332
   Width = 557
   object ADOConnection: TADOConnection
@@ -30,7 +30,7 @@ object DataModule2: TDataModule2
     MasterSource = DataSourceDevices
     TableName = 'TAG'
     Left = 24
-    Top = 136
+    Top = 160
   end
   object Timer1: TTimer
     Enabled = False
@@ -59,12 +59,12 @@ object DataModule2: TDataModule2
     Connection = ADOConnection
     CursorType = ctStatic
     TableName = 'DEVICE'
-    Left = 104
+    Left = 120
     Top = 136
   end
   object DataSourceDevices: TDataSource
     DataSet = ADOTableDevice
-    Left = 96
+    Left = 120
     Top = 96
   end
   object DataSourceAlarmHistory: TDataSource
@@ -76,7 +76,7 @@ object DataModule2: TDataModule2
     Active = True
     Connection = ADOConnection
     CursorType = ctStatic
-    TableName = 'HIASTORY_ALARM_ZAPROS'
+    TableName = 'ALARM_HISTORY_RES'
     Left = 368
     Top = 152
   end

@@ -244,6 +244,7 @@ void _fastcall TComPort::getDB_data()
      int len=sizeof(datard);
      float tenths=ADO->Fields->FieldByName("tenths")->AsInteger;
      float value;
+     //float Data
       if(ADO->Fields->FieldByName("Date_type")->AsInteger==1)
      {
        len=9;
@@ -255,8 +256,10 @@ void _fastcall TComPort::getDB_data()
        ADO->Fields->FieldByName("Date_value")->AsString=FloatToStrF(value,ffGeneral,4,3);
        ADO->Post();
        ADDtoCharts(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
+       CompareAlarm(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value); //Проверка Алармов
 
      }
+    //Ineteger Data
      if(ADO->Fields->FieldByName("Date_type")->AsInteger==0)
      {
        len=7;
@@ -266,6 +269,7 @@ void _fastcall TComPort::getDB_data()
        ADO->Fields->FieldByName("Date_value")->AsString=FloatToStrF(value,ffGeneral,4,3);
        ADO->Post();
        ADDtoCharts(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
+       CompareAlarm(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
      }
     int WidgetType=ADO->Fields->FieldByName("WidgetType")->AsInteger;
     switch (WidgetType)
@@ -305,45 +309,76 @@ void __fastcall TComPort::ADDtoCharts(int TagID, float value)
 //------------------------------------------------------------------------------
 void __fastcall TComPort::CompareAlarm(int TagID, float value)
 {
-   TADOQuery *ADO;
+  TADOQuery *ADO;
+  TADOTable *ADOH;
   ADO = new TADOQuery(NULL);
+  ADOH = new TADOTable(NULL);
   ADO->Connection=DataModule2->ADOConnection;
+  ADOH->Connection=DataModule2->ADOConnection;
+  ADOH->TableName="ALARM_HISTORY";
+  ADOH->Active=true;
   ADO->SQL->Clear();
-  ADO->SQL->Add("SELECT ALARMS.*, ALARMS.ID_TAG");
-  ADO->SQL->Add("FROM TAG INNER JOIN ALARMS ON TAG.ID = ALARMS.ID_TAG");
-  ADO->SQL->Add("WHERE ALARMS.ID_TAG="+IntToStr(TagID));
+  ADO->SQL->Add("SELECT *");
+  ADO->SQL->Add("FROM ALARMS");
+  ADO->SQL->Add("WHERE ID_TAG="+IntToStr(TagID));
   ADO->Active=true;
-  AnsiString Znak= ADO->Fields->FieldByName("ZNAK")->AsString;
-  bool rez;
-  float AValue=ADO->Fields->FieldByName("AlarmValue")->AsFloat;
-  if(Znak==">")  rez =value>AValue;
-  if(Znak==">=") rez =value>=AValue;
-  if(Znak=="<")  rez =value<AValue;
-  if(Znak=="<=") rez =value<=AValue;
-  if(Znak=="!=") rez =value!=AValue;
-  if(Znak=="==") rez =value==AValue;
-  bool trigger=ADO->Fields->FieldByName("Trigger")->AsBoolean;
-  if(rez && !trigger)
+  ADO->First();
+  while(!ADO->Eof)
   {
-    ADO->Fields->FieldByName("Trigger")->AsBoolean=true;
-    DataModule2->ADOTableAlarmHistory->Insert();
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("ID_ALARMS")->AsInteger=ADO->Fields->FieldByName("ALARMS.ID")->AsInteger;
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("DATETIME")->AsDateTime=Now();
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("STATUS")->AsBoolean=true;
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("Values")->AsFloat=value;
-    DataModule2->ADOTableAlarmHistory->Post();
-  }
-  if(!rez && trigger)
-  {
-    ADO->Fields->FieldByName("Trigger")->AsBoolean=false;
-    DataModule2->ADOTableAlarmHistory->Insert();
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("ID_ALARMS")->AsInteger=ADO->Fields->FieldByName("ALARMS.ID")->AsInteger;
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("DATETIME")->AsDateTime=Now();
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("STATUS")->AsBoolean=false;
-    DataModule2->ADOTableAlarmHistory->Fields->FieldByName("Values")->AsFloat=value;
-    DataModule2->ADOTableAlarmHistory->Post();
-  }
+        if(!ADO->Fields->FieldByName("Enabled")->AsBoolean) {ADO->Next();continue;}
 
+        AnsiString Znak= ADO->Fields->FieldByName("ZNAK")->AsString;
+        bool rez;
+        float AValue=ADO->Fields->FieldByName("AlarmValue")->AsFloat;
+        if(Znak==">")  rez =value>AValue;
+        if(Znak==">=") rez =value>=AValue;
+        if(Znak=="<")  rez =value<AValue;
+        if(Znak=="<=") rez =value<=AValue;
+        if(Znak=="!=") rez =value!=AValue;
+        if(Znak=="==") rez =value==AValue;
+        bool trigger=ADO->Fields->FieldByName("Trigger")->AsBoolean;
+        if(rez && !trigger)
+        {
+
+                ADO->Edit();
+                ADO->Fields->FieldByName("Trigger")->AsBoolean=true;
+                ADO->Post();
+
+                ADOH->Insert();
+                ADOH->Fields->FieldByName("ID_ALARMS")->AsInteger=ADO->Fields->FieldByName("ID")->AsInteger;
+                ADOH->Fields->FieldByName("DATETIME")->AsString=DateTimeToStr(Now());
+                ADOH->Fields->FieldByName("STATUS")->AsBoolean=true;
+                ADOH->Fields->FieldByName("Values")->AsFloat=value;
+                ADOH->Post();
+                Synchronize(UpdateHistoryTable);
+        }
+        if(!rez && trigger)
+        {
+                ADO->Edit();
+                ADO->Fields->FieldByName("Trigger")->AsBoolean=false;
+                ADO->Post();
+
+                ADOH->Insert();
+                ADOH->Fields->FieldByName("ID_ALARMS")->AsInteger=ADO->Fields->FieldByName("ID")->AsInteger;
+                ADOH->Fields->FieldByName("DATETIME")->AsString=DateTimeToStr(Now());
+                ADOH->Fields->FieldByName("STATUS")->AsBoolean=false;
+                ADOH->Fields->FieldByName("Values")->AsFloat=value;
+                ADOH->Post();
+              Synchronize(UpdateHistoryTable);
+        }
+        ADO->Next();
+  }
   ADO->Active=false;
   ADO->Free();
+
+  ADOH->Active=false;
+  ADOH->Free();
+
+}
+
+void __fastcall TComPort::UpdateHistoryTable()
+{
+   DataModule2->ADOTableAlarmHistory->Active=false;
+   DataModule2->ADOTableAlarmHistory->Active=true;
+    Form1->DBGrid2->DataSource->DataSet->Refresh();
 }
