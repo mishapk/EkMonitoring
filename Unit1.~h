@@ -26,6 +26,8 @@
 #include "frga100.h"
 #include "FRPM100.h"
 #include <DBCtrls.hpp>
+#include <QuickRpt.hpp>
+#include <QRCtrls.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -61,6 +63,7 @@ __published:	// IDE-managed Components
         TPanel *Panel3;
         TDBNavigator *DBNavigator2;
         TDBGrid *DBGrid5;
+        TBitBtn *BitBtn1;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);
@@ -75,6 +78,7 @@ __published:	// IDE-managed Components
         void __fastcall DBGrid2DrawColumnCell(TObject *Sender,
           const TRect &Rect, int DataCol, TColumn *Column,
           TGridDrawState State);
+        void __fastcall BitBtn1Click(TObject *Sender);
 private:	// User declarations
      void __fastcall IniSettings(bool read=0); //Чтение/запись настроек INI файл
      void __fastcall GetSerialPortsList(); //Получение списка comportov

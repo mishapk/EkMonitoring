@@ -280,3 +280,81 @@ void __fastcall TForm1::DBGrid2DrawColumnCell(TObject *Sender,
 
 
 
+void __fastcall TForm1::BitBtn1Click(TObject *Sender)
+{
+  //http://www.delphisources.ru/pages/faq/base/print_dbgrid_with_quickrep.html#
+  TQuickRep *Rep =new TQuickRep(this,0);
+  Rep->Name="Rep1";
+  Rep->DataSet=DataModule2->ADOTableAlarmHistory;
+  //-----------------------------------------
+  TQRBand *TitleBand= new  TQRBand(Rep);
+  TitleBand->Parent=Rep;
+  TitleBand->BandType=rbTitle;
+  TitleBand->Frame->DrawTop=true;
+  TitleBand->Frame->DrawBottom=true;
+  TitleBand->Frame->DrawLeft=true;
+  TitleBand->Frame->DrawRight=true;
+  //-----------------------------------------
+  TQRBand *DetailBand= new  TQRBand(Rep);
+  DetailBand->Parent=Rep;
+  DetailBand->BandType=rbDetail;
+  DetailBand->Frame->DrawLeft=true;
+  DetailBand->Frame->DrawRight=true;
+  DetailBand->Frame->DrawBottom=true;
+
+  int n=DBGrid2->Columns->Count;
+  TQRLabel **LB1= new TQRLabel*[n];    //Title Label
+  TQRDBText **LB2= new TQRDBText*[n];  //Detail Label
+  int max=0;
+  int dmax=0;
+  for(int i=0;i<n;i++)
+  {
+
+
+    LB2[i]= new TQRDBText(Rep);
+    LB2[i]->Parent=DetailBand;
+    LB2[i]->DataSet=Rep->DataSet;
+    LB2[i]->DataField=DBGrid2->Columns->operator [](i)->FieldName;
+    LB2[i]->Left=0;
+    LB2[i]->AutoSize=false;
+    LB2[i]->Width=i?(DetailBand->Width-LB2[0]->Width)/(n-1):150;
+    LB2[i]->AutoStretch=true;
+    LB2[i]->Alignment=taCenter;
+    if(i)LB2[i]->Left=LB2[i-1]->Left+LB2[i-1]->Width;
+    LB2[i]->Frame->DrawLeft=true;
+
+
+    LB1[i]= new TQRLabel(Rep);
+    LB1[i]->Parent=TitleBand;
+    LB1[i]->Caption="\r   "+DBGrid2->Columns->operator [](i)->Title->Caption;
+    LB1[i]->AutoStretch=true;
+    LB1[i]->Alignment=taCenter;
+    LB1[i]->Left=LB2[i]->Left;
+
+    if(i)LB1[i]->Frame->DrawLeft=true;
+    int h=LB2[i]->Size->Height;
+    max=h>max?h:max;
+    h=LB2[i]->Height;
+    dmax=h>dmax?h:dmax;
+  }
+
+   TitleBand->Height=LB1[0]->Height;
+   DetailBand->Height=dmax*2;
+
+   for(int i=0;i<n;i++) LB2[i]->Size->Height=dmax;
+
+  //-----------------------------------------
+
+  TQRBand *PageFooteBand= new  TQRBand(Rep);
+  PageFooteBand->Parent=Rep;
+  PageFooteBand->BandType=rbPageFooter;
+  PageFooteBand->Size->Height=20;
+ //-----------------------------------------
+  Rep->PreviewModal();
+
+
+
+  Rep->Free();
+}
+//---------------------------------------------------------------------------
+
