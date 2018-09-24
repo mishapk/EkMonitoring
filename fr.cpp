@@ -37,3 +37,4 @@ __fastcall TWS600::TWS600(TComponent* Owner)
      case 18:RMeter->Value->Value=value; REdit->Text=FT;break;   //radiation intencity
    }
  }
+

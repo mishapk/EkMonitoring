@@ -11,6 +11,7 @@
 #pragma link "vrLineMeter"
 #pragma link "VrEdit"
 #pragma link "VrScope"
+#pragma link "Plot"
 #pragma resource "*.dfm"
 TGA100 *GA100;
 //---------------------------------------------------------------------------
@@ -43,8 +44,8 @@ __fastcall TGA100::TGA100(TComponent* Owner)
               Gaz1->Region1->FromValue=scale;
               Gaz1Edit->Text=FT;
               Gaz1Label->Caption=gaz;
-              Gaz1GB->Caption=gaz;
-              Gaz1Scope->SetData(0,value*100/scale);
+             // Gaz1GB->Caption=gaz;
+            //  Gaz1Scope->SetData(0,value*100/scale);
               break;
      case 21: Gaz2->Value->Value=value;
               Gaz2->Scale->Max=scale;
@@ -53,8 +54,8 @@ __fastcall TGA100::TGA100(TComponent* Owner)
               Gaz2->Region1->FromValue=scale;
               Gaz2Edit->Text=FT;
               Gaz2Label->Caption=gaz;
-              Gaz2GB->Caption=gaz;
-              Gaz2Scope->SetData(0,value*100/scale);
+            //  Gaz2GB->Caption=gaz;
+             // Gaz2Scope->SetData(0,value*100/scale);
               break;
      case 22: Gaz3->Value->Value=value;
               Gaz3->Scale->Max=scale;
@@ -63,11 +64,46 @@ __fastcall TGA100::TGA100(TComponent* Owner)
               Gaz3->Region1->FromValue=scale;
               Gaz3Edit->Text=FT;
               Gaz3Label->Caption=gaz;
-              Gaz3GB->Caption=gaz;
-              Gaz3Scope->SetData(0,value*100/scale);
+           //   Gaz3GB->Caption=gaz;
+            //  Gaz3Scope->SetData(0,value*100/scale);
               break;
 
    }
  }
 
+
+
+void __fastcall TGA100::SpeedButton1Click(TObject *Sender)
+{
+ AnsiString S=this->Name;
+ TFormPlot *MF=new TFormPlot(this);
+ MF->IDDevice=StrToInt(S.Delete(1,2 ));
+ MF->OFFSET=20;
+ MF->ShowModal();
+ MF->Free();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGA100::SpeedButton2Click(TObject *Sender)
+{
+ AnsiString S=this->Name;
+ TFormPlot *MF=new TFormPlot(this);
+
+ MF->IDDevice=StrToInt(S.Delete(1,2));
+ MF->OFFSET=21;
+ MF->ShowModal();
+ MF->Free();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TGA100::SpeedButton3Click(TObject *Sender)
+{
+  AnsiString S=this->Name;
+  TFormPlot *MF=new TFormPlot(this);
+ MF->IDDevice=StrToInt(S.Delete(1,2 ));
+ MF->OFFSET=22;
+ MF->ShowModal();
+ MF->Free();
+}
+//---------------------------------------------------------------------------
 

@@ -12,6 +12,9 @@
 #include "VrEdit.hpp"
 #include "vrLineMeter.hpp"
 #include "VrScope.hpp"
+#include "Plot.h"
+#include <ExtCtrls.hpp>
+#include <Buttons.hpp>
 //---------------------------------------------------------------------------
 class TPM100 : public TFrame
 {
@@ -25,11 +28,9 @@ __published:	// IDE-managed Components
         TLabel *Gaz2Label;
         TVrStrEdit *Gaz1Edit;
         TVrStrEdit *Gaz2Edit;
-        TGroupBox *GroupBox1;
-        TGroupBox *Gaz2GB;
-        TVrScope *Gaz2Scope;
-        TGroupBox *Gaz1GB;
-        TVrScope *Gaz1Scope;
+        TPanel *Panel1;
+        TSpeedButton *SpeedButton2;
+        TSpeedButton *SpeedButton3;
 private:	// User declarations
 public:		// User declarations
         __fastcall TPM100(TComponent* Owner);

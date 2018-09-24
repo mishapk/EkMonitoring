@@ -380,5 +380,6 @@ void __fastcall TComPort::UpdateHistoryTable()
 {
    DataModule2->ADOTableAlarmHistory->Active=false;
    DataModule2->ADOTableAlarmHistory->Active=true;
-    Form1->DBGrid2->DataSource->DataSet->Refresh();
+   // Form1->DBGrid2->DataSource->DataSet->Refresh();
+    DataModule2->ADOTableAlarmHistory->Sort="DATETIME DESC";
 }

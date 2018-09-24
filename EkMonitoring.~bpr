@@ -5,15 +5,17 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="EkMonitoring.exe"/>
     <OBJFILES value="EkMonitoring.obj Unit1.obj ComportThraide.obj DataModule.obj fr.obj 
-      frga100.obj FRPM100.obj"/>
+      frga100.obj FRPM100.obj Plot.obj"/>
     <RESFILES value="EkMonitoring.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm FRPM100.dfm"/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm FRPM100.dfm Plot.dfm"/>
     <LIBFILES value=""/>
-    <LIBRARIES value="vcwb6.lib"/>
-    <SPARELIBS value="vcl.lib rtl.lib adortl.lib dbrtl.lib vcldb.lib teedb.lib tee.lib vcwb6.lib"/>
+    <LIBRARIES value="bdertl.lib vclx.lib qrpt.lib vcwb6.lib tee.lib teedb.lib vcldb.lib 
+      dbrtl.lib adortl.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib adortl.lib dbrtl.lib vcldb.lib teedb.lib tee.lib vcwb6.lib 
+      qrpt.lib vclx.lib bdertl.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
       vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
       teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
@@ -29,18 +31,20 @@
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
     <USERDEFINES value="_DEBUG"/>
-    <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
+    <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="EkMonitoring.cpp"/>
-    <INCLUDEPATH value="..\!!!Componets\TIWC6;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="$(BCB)\Projects\Lib;..\!!!Componets\TIWC6;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;D:\Programming\myproject\EKMonitoring;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="&quot;d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl;&quot;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5&quot;"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;..\!!!Componets\TIWC6;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;D:\Programming\myproject\EKMonitoring;$(BCB)\lib\obj;$(BCB)\lib;&quot;d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5&quot;"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I..\!!!Componets\TIWC6 
+    <IDLCFLAGS value="-I&quot;d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5&quot; 
       -I&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot; 
       -ID:\Programming\myproject\EKMonitoring -I$(BCB)\include 
-      -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
+      -I$(BCB)\include\vcl 
+      -I&quot;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5&quot; 
+      -src_suffix cpp -D_DEBUG -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
       -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
@@ -50,9 +54,9 @@
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
-    <ALLOBJ value="c0w32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
     <ALLRES value="$(RESFILES)"/>
-    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
     <OTHERFILES value=""/>
   </LINKER>
   <FILELIST>
@@ -64,6 +68,7 @@
       <FILE FILENAME="fr.cpp" FORMNAME="WS600" UNITNAME="fr" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
       <FILE FILENAME="frga100.cpp" FORMNAME="GA100" UNITNAME="frga100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
       <FILE FILENAME="FRPM100.cpp" FORMNAME="PM100" UNITNAME="FRPM100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
+      <FILE FILENAME="Plot.cpp" FORMNAME="Plotter" UNITNAME="Plot" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -95,6 +100,27 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
+
+[HistoryLists\hlIncludePath]
+Count=4
+Item0=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5\
+Item1=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+Item2=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+Item3=..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=$(BCB)\Projects\Lib;..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\lib\obj;$(BCB)\lib;d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5
+Item1=$(BCB)\Projects\Lib;..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\lib\obj;$(BCB)\lib;d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\
+Item2=$(BCB)\Projects\Lib;..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
 
 [Debugging]
 DebugSourceDirs=$(BCB)\source\vcl

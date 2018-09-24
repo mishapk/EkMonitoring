@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 273
-  Top = 127
+  Left = 449
+  Top = 402
   Width = 851
   Height = 555
   Caption = 'EKMonitoring'
@@ -21,11 +21,11 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 835
-    Height = 500
-    ActivePage = TabSheet3
+    Height = 499
+    ActivePage = TabSheet1
     Align = alClient
     MultiLine = True
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1043#1083#1072#1074#1085#1072#1103
@@ -33,7 +33,7 @@ object Form1: TForm1
         Left = 0
         Top = 0
         Width = 827
-        Height = 472
+        Height = 471
         Align = alClient
         MultiLine = True
         TabOrder = 0
@@ -47,57 +47,19 @@ object Form1: TForm1
         Left = 0
         Top = 0
         Width = 827
-        Height = 472
+        Height = 471
         Align = alClient
         Caption = #1055#1086#1082#1072#1079#1072#1090#1077#1083#1080
         TabOrder = 0
-        object DBGrid3: TDBGrid
-          Left = 225
-          Top = 15
-          Width = 600
-          Height = 455
-          Align = alClient
-          DataSource = DataModule2.DataSourceTag
-          Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
-          ReadOnly = True
-          TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -11
-          TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = []
-          OnCellClick = DBGrid3CellClick
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'TagName'
-              Title.Caption = #1044#1072#1090#1095#1080#1082
-              Width = 200
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Date_value'
-              Title.Caption = #1047#1085#1072#1095#1077#1085#1080#1077
-              Width = 60
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'Units'
-              Title.Caption = #1045#1076'.'#1048#1079#1084'.'
-              Visible = True
-            end>
-        end
         object DBGrid1: TDBGrid
           Left = 2
           Top = 15
           Width = 223
-          Height = 455
+          Height = 454
           Align = alLeft
           DataSource = DataModule2.DataSourceDevices
           Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgConfirmDelete, dgCancelOnExit]
-          TabOrder = 1
+          TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
           TitleFont.Height = -11
@@ -112,6 +74,53 @@ object Form1: TForm1
               Visible = True
             end>
         end
+        object Panel4: TPanel
+          Left = 225
+          Top = 15
+          Width = 600
+          Height = 454
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          object DBGrid3: TDBGrid
+            Left = 0
+            Top = 0
+            Width = 600
+            Height = 454
+            Align = alClient
+            DataSource = DataModule2.DataSourceTag
+            Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+            ReadOnly = True
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'MS Sans Serif'
+            TitleFont.Style = []
+            OnCellClick = DBGrid3CellClick
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'TagName'
+                Title.Caption = #1044#1072#1090#1095#1080#1082
+                Width = 200
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Date_value'
+                Title.Caption = #1047#1085#1072#1095#1077#1085#1080#1077
+                Width = 60
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'Units'
+                Title.Caption = #1045#1076'.'#1048#1079#1084'.'
+                Visible = True
+              end>
+          end
+        end
       end
     end
     object TabSheet3: TTabSheet
@@ -119,7 +128,7 @@ object Form1: TForm1
       ImageIndex = 2
       object Panel1: TPanel
         Left = 0
-        Top = 401
+        Top = 400
         Width = 827
         Height = 71
         Align = alBottom
@@ -216,7 +225,7 @@ object Form1: TForm1
         Left = 0
         Top = 0
         Width = 827
-        Height = 401
+        Height = 400
         Align = alClient
         DataSource = DataModule2.DataSourceAlarmHistory
         Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
@@ -359,15 +368,15 @@ object Form1: TForm1
       object GroupBox2: TGroupBox
         Left = 380
         Top = 49
-        Width = 368
-        Height = 423
-        Align = alLeft
+        Width = 447
+        Height = 422
+        Align = alClient
         Caption = #1044#1072#1090#1095#1080#1082#1080
         TabOrder = 1
         object Panel2: TPanel
           Left = 2
-          Top = 380
-          Width = 364
+          Top = 379
+          Width = 443
           Height = 41
           Align = alBottom
           BevelOuter = bvNone
@@ -388,8 +397,8 @@ object Form1: TForm1
         object DBGrid4: TDBGrid
           Left = 2
           Top = 15
-          Width = 364
-          Height = 365
+          Width = 443
+          Height = 364
           Align = alClient
           DataSource = DataModule2.DataSourceTag
           TabOrder = 1
@@ -455,13 +464,13 @@ object Form1: TForm1
         Left = 0
         Top = 49
         Width = 380
-        Height = 423
+        Height = 422
         Align = alLeft
         Caption = #1059#1089#1090#1088#1086#1081#1089#1090#1074#1072
         TabOrder = 2
         object Panel3: TPanel
           Left = 2
-          Top = 380
+          Top = 379
           Width = 376
           Height = 41
           Align = alBottom
@@ -484,7 +493,7 @@ object Form1: TForm1
           Left = 2
           Top = 15
           Width = 376
-          Height = 365
+          Height = 364
           Align = alClient
           DataSource = DataModule2.DataSourceDevices
           TabOrder = 1
@@ -531,7 +540,7 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 500
+    Top = 499
     Width = 835
     Height = 17
     Panels = <

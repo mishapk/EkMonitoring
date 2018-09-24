@@ -10,6 +10,7 @@
 #pragma link "VrEdit"
 #pragma link "vrLineMeter"
 #pragma link "VrScope"
+#pragma link "Plot"
 #pragma resource "*.dfm"
 TPM100 *PM100;
 //---------------------------------------------------------------------------
@@ -40,8 +41,8 @@ __fastcall TPM100::TPM100(TComponent* Owner)
               Gaz1->Region1->ToValue=0;
               Gaz1Edit->Text=FT;
               Gaz1Label->Caption=gaz;
-              Gaz1GB->Caption=gaz;
-              Gaz1Scope->SetData(0,value*100/scale);
+           //   Gaz1GB->Caption=gaz;
+           //   Gaz1Scope->SetData(0,value*100/scale);
               break;
      case 21: Gaz2->Value->Value=value;
               Gaz2->Scale->Max=scale;
@@ -52,8 +53,8 @@ __fastcall TPM100::TPM100(TComponent* Owner)
               Gaz2->Region1->ToValue=0;
               Gaz2Edit->Text=FT;
               Gaz2Label->Caption=gaz;
-              Gaz2GB->Caption=gaz;
-              Gaz2Scope->SetData(0,value*100/scale);
+           //   Gaz2GB->Caption=gaz;
+           //   Gaz2Scope->SetData(0,value*100/scale);
               break;
 
 

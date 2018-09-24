@@ -8,6 +8,7 @@ USEFORM("DataModule.cpp", DataModule2); /* TDataModule: File Type */
 USEFORM("fr.cpp", WS600); /* TFrame: File Type */
 USEFORM("frga100.cpp", GA100); /* TFrame: File Type */
 USEFORM("FRPM100.cpp", PM100); /* TFrame: File Type */
+USEFORM("Plot.cpp", Plotter); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

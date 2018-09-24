@@ -13,6 +13,10 @@
 #include "vrLineMeter.hpp"
 #include "VrEdit.hpp"
 #include "VrScope.hpp"
+#include "Plot.h"
+#include <ExtCtrls.hpp>
+#include <Buttons.hpp>
+#include "PlotForm.h"
 //---------------------------------------------------------------------------
 class TGA100 : public TFrame
 {
@@ -30,13 +34,13 @@ __published:	// IDE-managed Components
         TVrStrEdit *Gaz1Edit;
         TVrStrEdit *Gaz2Edit;
         TVrStrEdit *Gaz3Edit;
-        TGroupBox *GroupBox1;
-        TGroupBox *Gaz3GB;
-        TGroupBox *Gaz2GB;
-        TGroupBox *Gaz1GB;
-        TVrScope *Gaz1Scope;
-        TVrScope *Gaz2Scope;
-        TVrScope *Gaz3Scope;
+        TPanel *Panel1;
+        TSpeedButton *SpeedButton1;
+        TSpeedButton *SpeedButton2;
+        TSpeedButton *SpeedButton3;
+        void __fastcall SpeedButton1Click(TObject *Sender);
+        void __fastcall SpeedButton2Click(TObject *Sender);
+        void __fastcall SpeedButton3Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TGA100(TComponent* Owner);

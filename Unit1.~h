@@ -64,6 +64,7 @@ __published:	// IDE-managed Components
         TDBNavigator *DBNavigator2;
         TDBGrid *DBGrid5;
         TBitBtn *BitBtn1;
+        TPanel *Panel4;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall SpeedButton1Click(TObject *Sender);

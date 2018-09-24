@@ -173,7 +173,7 @@ void __fastcall TForm1::CreateTabDevices()
     case 1: UFR.FR[index]=new TGA100(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
     case 2: UFR.FR[index]=new TPM100(this);UFR.FR[index]->Parent=crl1; UFR.FR[index]->Name="ID"+IntToStr(ID);break;
    };
-
+   UFR.FR[index]->Align=alClient;
     ADO->Next();
   }
    ADO->Active=false;

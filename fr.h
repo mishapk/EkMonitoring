@@ -13,6 +13,7 @@
 #include "VrEdit.hpp"
 #include "vrLineMeter.hpp"
 #include "VrThermoMeter.hpp"
+#include <Buttons.hpp>
 //---------------------------------------------------------------------------
 class TWS600 : public TFrame
 {
@@ -54,10 +55,17 @@ __published:	// IDE-managed Components
         TVrStrEdit *RT;
         TLabel *Label17;
         TLabel *Label18;
+        TSpeedButton *SpeedButton1;
+        TSpeedButton *SpeedButton2;
+        TSpeedButton *SpeedButton3;
+        TSpeedButton *SpeedButton4;
+        TSpeedButton *SpeedButton5;
+        TSpeedButton *SpeedButton6;
 private:	// User declarations
 public:		// User declarations
         __fastcall TWS600(TComponent* Owner);
         void __fastcall SetValue(int ID,float value);
+        int TagID;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TWS600 *WS600;
