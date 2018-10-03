@@ -5,12 +5,13 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="EkMonitoring.exe"/>
     <OBJFILES value="EkMonitoring.obj Unit1.obj ComportThraide.obj DataModule.obj fr.obj 
-      frga100.obj FRPM100.obj Plot.obj"/>
+      frga100.obj FRPM100.obj Plot.obj PlotForm.obj"/>
     <RESFILES value="EkMonitoring.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm FRPM100.dfm Plot.dfm"/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm DataModule.dfm fr.dfm frga100.dfm FRPM100.dfm 
+      Plot.dfm PlotForm.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="bdertl.lib vclx.lib qrpt.lib vcwb6.lib tee.lib teedb.lib vcldb.lib 
       dbrtl.lib adortl.lib rtl.lib vcl.lib"/>
@@ -69,6 +70,7 @@
       <FILE FILENAME="frga100.cpp" FORMNAME="GA100" UNITNAME="frga100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
       <FILE FILENAME="FRPM100.cpp" FORMNAME="PM100" UNITNAME="FRPM100" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
       <FILE FILENAME="Plot.cpp" FORMNAME="Plotter" UNITNAME="Plot" CONTAINERID="CCompiler" DESIGNCLASS="TFrame" LOCALCOMMAND=""/>
+      <FILE FILENAME="PlotForm.cpp" FORMNAME="FormPlot" UNITNAME="PlotForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

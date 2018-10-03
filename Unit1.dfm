@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 449
-  Top = 402
+  Left = 537
+  Top = 268
   Width = 851
   Height = 555
-  Caption = 'EKMonitoring'
+  Caption = 'ITEng - EKMonitoring'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

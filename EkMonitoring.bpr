@@ -104,11 +104,12 @@ ProductVersion=1.0.0.0
 Comments=
 
 [HistoryLists\hlIncludePath]
-Count=4
-Item0=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5\
-Item1=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
-Item2=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
-Item3=..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+Count=5
+Item0=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5
+Item1=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl;d:\work\kovalyov_mp\Myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\TMS Instrumentation Workshop v1.4.5\
+Item2=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+Item3=d:\Programming\myproject\!!!Componets\TMS Instrumentation Workshop v1.4.5\;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
+Item4=..\!!!Componets\TIWC6;C:\Program Files (x86)\Borland\CBuilder6\Projects;D:\Programming\myproject\EKMonitoring;$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
 Count=3
