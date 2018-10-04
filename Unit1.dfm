@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 537
   Top = 268
-  Width = 851
+  Width = 1048
   Height = 555
   Caption = 'ITEng - EKMonitoring'
   Color = clBtnFace
@@ -20,7 +20,7 @@ object Form1: TForm1
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 835
+    Width = 1032
     Height = 499
     ActivePage = TabSheet1
     Align = alClient
@@ -32,7 +32,7 @@ object Form1: TForm1
       object PageControlDevices: TPageControl
         Left = 0
         Top = 0
-        Width = 827
+        Width = 1024
         Height = 471
         Align = alClient
         MultiLine = True
@@ -129,7 +129,7 @@ object Form1: TForm1
       object Panel1: TPanel
         Left = 0
         Top = 400
-        Width = 827
+        Width = 1024
         Height = 71
         Align = alBottom
         TabOrder = 0
@@ -224,7 +224,7 @@ object Form1: TForm1
       object DBGrid2: TDBGrid
         Left = 0
         Top = 0
-        Width = 827
+        Width = 1024
         Height = 400
         Align = alClient
         DataSource = DataModule2.DataSourceAlarmHistory
@@ -290,7 +290,7 @@ object Form1: TForm1
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0
-        Width = 827
+        Width = 1024
         Height = 49
         Align = alTop
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1086#1088#1090#1072
@@ -368,7 +368,7 @@ object Form1: TForm1
       object GroupBox2: TGroupBox
         Left = 380
         Top = 49
-        Width = 447
+        Width = 644
         Height = 422
         Align = alClient
         Caption = #1044#1072#1090#1095#1080#1082#1080
@@ -376,7 +376,7 @@ object Form1: TForm1
         object Panel2: TPanel
           Left = 2
           Top = 379
-          Width = 443
+          Width = 640
           Height = 41
           Align = alBottom
           BevelOuter = bvNone
@@ -397,7 +397,7 @@ object Form1: TForm1
         object DBGrid4: TDBGrid
           Left = 2
           Top = 15
-          Width = 443
+          Width = 640
           Height = 364
           Align = alClient
           DataSource = DataModule2.DataSourceTag
@@ -456,6 +456,18 @@ object Form1: TForm1
               Expanded = False
               FieldName = 'Enabled'
               Title.Caption = #1048#1089#1087'.'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Znak'
+              Title.Caption = #1047#1085#1072#1082
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'KValue'
+              Title.Caption = #1050#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090
               Visible = True
             end>
         end
@@ -541,7 +553,7 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Top = 499
-    Width = 835
+    Width = 1032
     Height = 17
     Panels = <
       item

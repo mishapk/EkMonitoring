@@ -191,7 +191,14 @@ void __fastcall TComPort::TTYException()
 {
     return ((value&0xFF)<<8) | (value>>8);
 }
-
+//------------------------------------------------------------------------------
+float __fastcall __fastcall TComPort::KValue(AnsiString Znak,float k, float value)
+{
+  if(Znak=="*") return value*k;
+  if(Znak=="/") return value/k;
+  if(Znak=="+") return value+k;
+  if(Znak=="-") return value-k;
+}
 //------------------------------------------------------------------------------
 unsigned int CRC16_2(unsigned char *buf, int len)
 {
@@ -272,6 +279,15 @@ void _fastcall TComPort::getDB_data()
        CompareAlarm(ADO->Fields->FieldByName("TAG.ID")->AsInteger,value);
      }
     int WidgetType=ADO->Fields->FieldByName("WidgetType")->AsInteger;
+   AnsiString znak = ADO->Fields->FieldByName("Znak")->AsString;
+   AnsiString   ks = ADO->Fields->FieldByName("KValue")->AsString;
+
+   if ((znak!="")&&(ks!=""))
+   {
+     float k = ADO->Fields->FieldByName("KValue")->AsFloat;
+     value=KValue(znak,k,value);
+
+   }
     switch (WidgetType)
    {
     case 0: ((TWS600*)Form1->FindComponent("ID"+ADO->Fields->FieldByName("Device.ID")->AsString))->SetValue(ADO->Fields->FieldByName("Offset")->AsInteger,value);break;

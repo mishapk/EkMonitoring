@@ -74,7 +74,7 @@ public:
         __fastcall TComPort(bool CreateSuspended);
         void __fastcall Connect(const AnsiString& port, int baudrate);
         void __fastcall Disconnect();
-
+        float __fastcall KValue(AnsiString Znak, float k, float value);
 
 };
 //---------------------------------------------------------------------------
